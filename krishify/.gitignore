@@ -1,7 +1,7 @@
 venv/
 _pycache_/
 .env
-*.pkl
+
 *.pyc
 .DS_Store
 
