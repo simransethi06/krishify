@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 import joblib
 
 # ✅ Load dataset
-file_path = r"E:\krishify\krishify\krishify\app\Crop Recommendation Dataset.xlsx"
+file_path = r"E:\k1\krishify\krishify\app\models\Crop Recommendation Dataset.xlsx"
 df = pd.read_excel(file_path)
 print("✅ Dataset Loaded Successfully!")
 
@@ -34,8 +34,18 @@ print(f"✅ Model trained successfully with accuracy: {accuracy*100:.2f}%")
 joblib.dump(model, "crop_recommendation_model.pkl")
 joblib.dump(le, "label_encoder.pkl")
 
+# ---------------------------------------------------
+# ✅ Define a Sample Input (for testing prediction)
+# ---------------------------------------------------
+# NOTE: Replace these values with actual field conditions
+sample = pd.DataFrame({
+    "Temperature": [27.5],
+    "Humidity": [65],
+    "pH": [6.5],
+    "Rainfall": [220]
+})
 
-
+# ✅ Make Prediction
 prediction = model.predict(sample)
 predicted_label = le.inverse_transform(prediction)
 print(f"🌾 Recommended Crop: {predicted_label[0]}")
