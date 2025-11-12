@@ -34,13 +34,7 @@ print(f"✅ Model trained successfully with accuracy: {accuracy*100:.2f}%")
 joblib.dump(model, "crop_recommendation_model.pkl")
 joblib.dump(le, "label_encoder.pkl")
 
-# ✅ Example Prediction
-sample = pd.DataFrame({
-    'Temperature': [25.0],
-    'Humidity': [80.0],
-    'pH': [6.5],
-    'Rainfall': [200.0]
-})
+
 
 prediction = model.predict(sample)
 predicted_label = le.inverse_transform(prediction)

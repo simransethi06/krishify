@@ -1,0 +1,9 @@
+from pymongo import MongoClient
+import os
+
+client = MongoClient(os.getenv("MONGO_URI"))
+db = client["krishify"]
+
+users_collection = db["users"]
+crops_collection = db["crops"]
+predictions_collection = db["predictions"]

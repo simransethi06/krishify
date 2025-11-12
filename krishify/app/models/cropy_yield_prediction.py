@@ -48,19 +48,7 @@ print("✅ Model trained successfully!")
 print(f"📉 MAE: {mae:.3f}")
 print(f"📈 R² Score: {r2:.3f}")
 
-# Example: Predict yield for a sample crop
-sample = pd.DataFrame({
-    "crop": [le_crop.transform(["Rice"])[0]],
-    "rainfall": [800],
-    "temperature": [20],
-    "humidity": [60],
-    "N": [40],
-    "P": [20],
-    "K": [20],
-    "pH": [7.0],
-    "area": [5],
-    "region": [le_region.transform(["MP"])[0]]
-})
+
 
 predicted_yield = model.predict(sample)[0]
 print(f"🌾 Predicted Yield for sample input: {predicted_yield:.2f} tons/ha")
